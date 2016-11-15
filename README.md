@@ -1,8 +1,7 @@
 #NGL the NCCA Graphics Library (Bleeding Edge)
 This is the "Bleeding Edge" source branch for the NCCA Graphics Library ngl.
 
-< This branch contains Jon's work in progress and stuff that may break especially the demos unless using the same "bleeding edge branch"
-< what you see here is what I will use next year for teaching.
+> This branch contains Jon's work in progress and stuff that may break especially the demos unless using the same "bleeding edge branch" what you see here is what I will use next year for teaching.
 
 ## Change Log
 
