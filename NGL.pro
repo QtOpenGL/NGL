@@ -137,7 +137,6 @@ SOURCES += $$SRC_DIR/Vec4.cpp \
 		$$SRC_DIR/Transformation.cpp \
 		$$SRC_DIR/RibExport.cpp \
 		$$SRC_DIR/Quaternion.cpp \
-		$$SRC_DIR/PathCamera.cpp \
 		$$SRC_DIR/Obj.cpp \
 		$$SRC_DIR/Mat4.cpp \
 		$$SRC_DIR/Material.cpp \
@@ -155,7 +154,6 @@ SOURCES += $$SRC_DIR/Vec4.cpp \
 		$$SRC_DIR/ShaderProgram.cpp \
 		$$SRC_DIR/Plane.cpp \
 		$$SRC_DIR/AABB.cpp \
-		$$SRC_DIR/VertexArrayObject.cpp \
 		$$SRC_DIR/createDefaultVAOs.cpp \
 		$$SRC_DIR/Vec3.cpp \
 		$$SRC_DIR/Vec2.cpp \
@@ -198,7 +196,6 @@ HEADERS += $$INC_DIR/Vec4.h \
 		$$INC_DIR/RibExport.h \
 		$$INC_DIR/Transformation.h \
 		$$INC_DIR/Quaternion.h \
-		$$INC_DIR/PathCamera.h \
 		$$INC_DIR/Obj.h \
 		$$INC_DIR/NGLassert.h \
 		$$INC_DIR/Mat4.h \
@@ -217,7 +214,6 @@ HEADERS += $$INC_DIR/Vec4.h \
 		$$INC_DIR/ShaderProgram.h \
 		$$INC_DIR/Plane.h \
 		$$INC_DIR/AABB.h \
-		$$INC_DIR/VertexArrayObject.h \
 		$$INC_DIR/Vec3.h \
 		$$INC_DIR/Vec2.h \
 		$$INC_DIR/Text.h \

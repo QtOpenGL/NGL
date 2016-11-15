@@ -1,5 +1,17 @@
-#NGL the NCCA Graphics Library
-This is the main source branch for the NCCA Graphics Library ngl.
+#NGL the NCCA Graphics Library (Bleeding Edge)
+This is the "Bleeding Edge" source branch for the NCCA Graphics Library ngl.
+
+< This branch contains Jon's work in progress and stuff that may break especially the demos unless using the same "bleeding edge branch"
+< what you see here is what I will use next year for teaching.
+
+## Change Log
+
+- Updated to remove the VertexArrayObject class and use factories
+- Removed PathCamera (nobody really used it!)
+
+
+## Intro
+
 
 It needs to be built using QtCreator or CMake and you will also need to install
 boost (pathed in /usr/local/include as default)
