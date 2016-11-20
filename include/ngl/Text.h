@@ -46,6 +46,7 @@
 #include <QtCore/QHash>
 #include <memory>
 #include <QFont>
+#include <unordered_map>
 #include "Mat4.h"
 
 namespace ngl
@@ -61,7 +62,7 @@ namespace ngl
   {
     int width; /// @brief the width of the font
     GLuint textureID; /// @brief the texture id of the font billboard
-    AbstractVAO *vao; /// a vao for the font
+    std::shared_ptr<AbstractVAO> vao; /// a vao for the font
   };
 
 class NGL_DLLEXPORT Text
@@ -90,7 +91,7 @@ public:
   /// @param[in] _y the y position of the text in screen space
   /// @param[in] _text the text to draw (this is limited to ASCII chars ' '->'~' at present but unicode will be done soon
   //----------------------------------------------------------------------------------------------------------------------
-  void renderText(float _x, float _y, const QString &_text ) const noexcept;
+  void renderText(float _x, float _y, const QString &_text ) noexcept;
   //----------------------------------------------------------------------------------------------------------------------
   /// @brief set the size of the screen to scale our font to fit correctly
   /// this basically creates the orthographic projection needed for x/y assuming that the
@@ -120,7 +121,7 @@ protected:
   /// to render according to the Qt Docs a hash has faster lookups than QMap
   /// so using this
   //----------------------------------------------------------------------------------------------------------------------
-  QHash <char,FontChar> m_characters;
+  std::unordered_map <char,FontChar> m_characters;
 };
 
 }

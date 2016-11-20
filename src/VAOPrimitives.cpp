@@ -74,7 +74,7 @@ void VAOPrimitives::draw( const std::string &_name, GLenum _mode ) noexcept
 
 void VAOPrimitives::createVAOFromHeader(const std::string &_name, const Real *_data,  unsigned int _size ) noexcept
 {
-    AbstractVAO *vao = VAOFactory::createVAO("simpleVAO",GL_TRIANGLES);
+    std::unique_ptr<AbstractVAO> vao(VAOFactory::createVAO("simpleVAO",GL_TRIANGLES));
 ;
     // next we bind it so it's active for setting data
     vao->bind();
@@ -104,7 +104,7 @@ void VAOPrimitives::createVAOFromHeader(const std::string &_name, const Real *_d
     vao->setNumIndices(_size/8);
     // finally we have finished for now so time to unbind the VAO
     vao->unbind();
-    m_createdVAOs[_name]=vao;
+    m_createdVAOs[_name]=std::move(vao);
    // std::cout<<_name<<" Num Triangles "<<data.size()/3<<"\n";
 
 }
@@ -335,7 +335,7 @@ void VAOPrimitives::createCapsule( const std::string &_name,  const Real _radius
 void VAOPrimitives::createVAO(const std::string &_name,const std::vector<vertData> &_data,	const GLenum _mode) noexcept
 {
 
-  AbstractVAO *vao = VAOFactory::createVAO("simpleVAO",_mode);
+  std::unique_ptr<AbstractVAO>vao (VAOFactory::createVAO("simpleVAO",_mode));
   // next we bind it so it's active for setting data
   vao->bind();
 
@@ -364,7 +364,7 @@ void VAOPrimitives::createVAO(const std::string &_name,const std::vector<vertDat
   vao->setNumIndices(_data.size());
   // finally we have finished for now so time to unbind the VAO
   vao->unbind();
-  m_createdVAOs[_name]=vao;
+  m_createdVAOs[_name]=std::move(vao);
  // std::cout<<_name<<" Num Triangles "<<_data.size()/3<<"\n";
 
 }
@@ -893,14 +893,14 @@ void VAOPrimitives::clear() noexcept
     m_createdVAOs.erase(m_createdVAOs.begin(),m_createdVAOs.end());
 }
 
-AbstractVAO * VAOPrimitives::getVAOFromName(const std::string &_name)
+std::unique_ptr<AbstractVAO>  VAOPrimitives::getVAOFromName(const std::string &_name)
 {
   // get an iterator to the VertexArrayObjects
   auto VAO=m_createdVAOs.find(_name);
   // make sure we have a valid shader
   if(VAO!=m_createdVAOs.end())
   {
-    return VAO->second;
+    return std::move(VAO->second);
   }
   else return nullptr;
 }

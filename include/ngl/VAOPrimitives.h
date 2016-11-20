@@ -157,13 +157,13 @@ public :
   //----------------------------------------------------------------------------------------------------------------------
   void clear() noexcept;
   /// @brief get the raw VAO so we can map it etc
-  AbstractVAO * getVAOFromName(const std::string &_name);
+  std::unique_ptr<AbstractVAO> getVAOFromName(const std::string &_name);
 
 private :
 	//----------------------------------------------------------------------------------------------------------------------
 	///  a map to store the VAO by name
 	//----------------------------------------------------------------------------------------------------------------------
-  std::unordered_map <std::string,AbstractVAO *> m_createdVAOs;
+  std::unordered_map <std::string,std::unique_ptr<AbstractVAO>> m_createdVAOs;
 
 	//----------------------------------------------------------------------------------------------------------------------
 	/// @brief default constructor

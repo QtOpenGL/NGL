@@ -235,7 +235,7 @@ void BezierCurve::createVAO() noexcept
     //delete m_vaoPoints;
   }
 
-  m_vaoPoints.reset(ngl::VAOFactory::createVAO("simpleVAO",GL_POINTS));
+  m_vaoPoints=ngl::VAOFactory::createVAO("simpleVAO",GL_POINTS);
   m_vaoPoints->bind();
   size_t size=m_cp.size();
   std::vector <Vec3> points(size);
@@ -249,7 +249,7 @@ void BezierCurve::createVAO() noexcept
   m_vaoPoints->unbind();
 
 
-  m_vaoCurve.reset(ngl::VAOFactory::createVAO("simpleVAO",GL_LINE_LOOP));
+  m_vaoCurve=ngl::VAOFactory::createVAO("simpleVAO",GL_LINE_LOOP);
   m_vaoCurve->bind();
 
   std::vector <Vec3> lines(m_lod);
